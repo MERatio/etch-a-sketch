@@ -9,3 +9,21 @@ html {
 	margin: 0;
 	box-sizing: inherit;
 }
+
+.container {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#grid {
+	border: 1px solid #000;
+	width: 80vh;
+	height: 80vh;
+	display: grid;
+}
+
+.grid-square {
+	border: 1px solid #000;
+}
