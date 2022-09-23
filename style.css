@@ -10,6 +10,10 @@ html {
 	box-sizing: inherit;
 }
 
+body {
+	background-color: #1c1817;
+}
+
 .container {
 	height: 100vh;
 	display: flex;
@@ -17,14 +21,23 @@ html {
 	align-items: center;
 }
 
-#grid {
-	border: 1px solid #000;
+.eas {
 	width: 80vh;
 	height: 80vh;
+	padding: 60px;
+	background-color: #eb0e0d;
+	border-radius: 5px;
+	box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#grid {
+	width: 100%;
+	height: 100%;
 	display: grid;
 }
 
 .grid-square {
+	background-color: #fbfcf9;
 	border: 1px solid #000;
 }
 
