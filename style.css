@@ -27,3 +27,7 @@ html {
 .grid-square {
 	border: 1px solid #000;
 }
+
+.painted {
+	background-color: #000;
+}
