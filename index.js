@@ -14,7 +14,6 @@ function populateGrid(numOfSquarePerSide) {
 	const numOfSquares = numOfSquarePerSide * numOfSquarePerSide;
 	for (let i = 0; i < numOfSquares; i++) {
 		const domGridSquare = document.createElement('div');
-		domGridSquare.classList.add('grid-square');
 		domGridSquare.addEventListener('mouseover', handleGridSquareMouseover);
 		grid.appendChild(domGridSquare);
 	}
