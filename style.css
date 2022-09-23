@@ -1,3 +1,7 @@
+:root {
+	--red: #eb0e0d;
+}
+
 html {
 	box-sizing: border-box;
 }
@@ -22,12 +26,34 @@ body {
 }
 
 .eas {
+	position: relative;
 	width: 80vh;
 	height: 80vh;
 	padding: 60px;
-	background-color: #eb0e0d;
+	background-color: var(--red);
 	border-radius: 5px;
 	box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#boxes-prompt-btn {
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--red);
+	width: 55px;
+	height: 55px;
+	background-color: #e7be3c;
+	border: 1px solid #777;
+	border-radius: 50%;
+	transition: transform 0.1;
+	cursor: pointer;
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#boxes-prompt-btn:active {
+	transform: translate(-50%, -50%) scale(0.9);
 }
 
 #grid {
