@@ -6,7 +6,16 @@ const dom = {
 };
 
 function handleGridSquareMouseover(event) {
-	event.target.classList.add('painted');
+	const style = event.target.style;
+	const prevOpacity = style.opacity;
+
+	if (prevOpacity === '1') {
+		return;
+	} else if (prevOpacity === '') {
+		style.opacity = '0.1';
+	} else {
+		style.opacity = parseFloat(parseFloat(prevOpacity).toFixed(1)) + 0.1;
+	}
 }
 
 function populateGrid(numOfSquarePerSide) {
@@ -14,6 +23,7 @@ function populateGrid(numOfSquarePerSide) {
 	const numOfSquares = numOfSquarePerSide * numOfSquarePerSide;
 	for (let i = 0; i < numOfSquares; i++) {
 		const domGridSquare = document.createElement('div');
+		domGridSquare.classList.add('grid-box');
 		domGridSquare.addEventListener('mouseover', handleGridSquareMouseover);
 		grid.appendChild(domGridSquare);
 	}

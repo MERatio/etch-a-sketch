@@ -63,6 +63,7 @@ body {
 	background-color: #fbfcf9;
 }
 
-.painted {
+.grid-box {
 	background-color: #000;
+	opacity: 0;
 }
