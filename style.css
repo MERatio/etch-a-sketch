@@ -48,7 +48,8 @@ button {
 .squares-container {
 	width: 550px;
 	max-width: 100%;
-	border: 20px solid var(--red);
+	border: 30px solid var(--red);
+	border-radius: var(--b-radius);
 	display: flex;
 	flex-wrap: wrap;
 }
