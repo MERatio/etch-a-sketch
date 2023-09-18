@@ -40,14 +40,37 @@ function getRandomIntInclusive(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
 }
 
+function getSubstrInsideParen(str) {
+	const openParenIndex = str.indexOf('(');
+	const closeParenIndex = str.indexOf(')');
+	const substr = str.slice(openParenIndex + 1, closeParenIndex);
+	return substr;
+}
+
 function addSquaresHoverEffect() {
 	squares = document.querySelectorAll('.square');
 	squares.forEach((square) => {
-		square.addEventListener('mouseover', (e) => {
-			const r = getRandomIntInclusive(0, 255);
-			const g = getRandomIntInclusive(0, 255);
-			const b = getRandomIntInclusive(0, 255);
-			e.currentTarget.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+		square.addEventListener('mouseover', () => {
+			const squareComputedStyle = getComputedStyle(square);
+			const currentBgColor =
+				squareComputedStyle.getPropertyValue('background-color');
+			if (currentBgColor === 'rgb(255, 255, 255)') {
+				const r = getRandomIntInclusive(0, 255);
+				const g = getRandomIntInclusive(0, 255);
+				const b = getRandomIntInclusive(0, 255);
+				square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+			} else {
+				const currentFilter = squareComputedStyle.getPropertyValue('filter');
+				if (currentFilter === 'none') {
+					square.style.filter = 'brightness(0.9)';
+				} else {
+					const brightnessValue = Number(getSubstrInsideParen(currentFilter));
+					if (brightnessValue === 0) {
+						return;
+					}
+					square.style.filter = `brightness(${brightnessValue - 0.1})`;
+				}
+			}
 		});
 	});
 }
