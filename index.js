@@ -33,11 +33,21 @@ function addSquares(numOfSquares) {
 	}
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values_inclusivefunction getRandomIntInclusive(min, max) {
+function getRandomIntInclusive(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
 function addSquaresHoverEffect() {
 	squares = document.querySelectorAll('.square');
 	squares.forEach((square) => {
 		square.addEventListener('mouseover', (e) => {
-			e.currentTarget.style.backgroundColor = 'blue';
+			const r = getRandomIntInclusive(0, 255);
+			const g = getRandomIntInclusive(0, 255);
+			const b = getRandomIntInclusive(0, 255);
+			e.currentTarget.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 		});
 	});
 }
