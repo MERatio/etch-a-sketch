@@ -28,7 +28,7 @@ function addSquares(numOfSquares) {
 	for (let i = 0; i < numOfSquares; i++) {
 		const square = document.createElement('div');
 		square.classList.add('square');
-		square.setAttribute('style', `width: ${100 / Math.sqrt(numOfSquares)}%`);
+		square.style.width = `${100 / Math.sqrt(numOfSquares)}%`;
 		squaresContainer.appendChild(square);
 	}
 }
@@ -38,6 +38,13 @@ function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+function getRandomRgbValue() {
+	const r = getRandomIntInclusive(0, 255);
+	const g = getRandomIntInclusive(0, 255);
+	const b = getRandomIntInclusive(0, 255);
+	return `rgb(${r}, ${g}, ${b})`;
 }
 
 function getSubstrInsideParen(str) {
@@ -55,10 +62,7 @@ function addSquaresHoverEffect() {
 			const currentBgColor =
 				squareComputedStyle.getPropertyValue('background-color');
 			if (currentBgColor === 'rgb(255, 255, 255)') {
-				const r = getRandomIntInclusive(0, 255);
-				const g = getRandomIntInclusive(0, 255);
-				const b = getRandomIntInclusive(0, 255);
-				square.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+				square.style.backgroundColor = getRandomRgbValue();
 			} else {
 				const currentFilter = squareComputedStyle.getPropertyValue('filter');
 				if (currentFilter === 'none') {
