@@ -1,19 +1,24 @@
 'use strict';
 
-const GRID_SIZE = Math.pow(16, 2);
-
 const squaresContainer = document.querySelector('.squares-container');
 
-for (let i = 0; i < GRID_SIZE; i++) {
-	const square = document.createElement('div');
-	square.classList.add('square');
-	square.setAttribute('style', `width: ${100 / Math.sqrt(GRID_SIZE)}%`);
-	squaresContainer.appendChild(square);
+function addSquares(numOfSquares) {
+	for (let i = 0; i < numOfSquares; i++) {
+		const square = document.createElement('div');
+		square.classList.add('square');
+		square.setAttribute('style', `width: ${100 / Math.sqrt(numOfSquares)}%`);
+		squaresContainer.appendChild(square);
+	}
 }
 
-const squares = document.querySelectorAll('.square');
-squares.forEach((square) => {
-	square.addEventListener('mouseover', (e) => {
-		e.currentTarget.style.backgroundColor = 'blue';
+function addSquaresHoverEffect() {
+	const squares = document.querySelectorAll('.square');
+	squares.forEach((square) => {
+		square.addEventListener('mouseover', (e) => {
+			e.currentTarget.style.backgroundColor = 'blue';
+		});
 	});
-});
+}
+
+addSquares(Math.pow(16, 2));
+addSquaresHoverEffect();
