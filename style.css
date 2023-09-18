@@ -1,3 +1,8 @@
+:root {
+	--red: #ee0e0e;
+	--b-radius: 3px;
+}
+
 html {
 	box-sizing: border-box;
 }
@@ -5,6 +10,10 @@ html {
 body {
 	background-color: #0a0a0a;
 	margin: 0;
+}
+
+button {
+	cursor: pointer;
 }
 
 *,
@@ -22,10 +31,24 @@ body {
 	gap: 10px;
 }
 
+.change-squares-per-side {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 6px 12px;
+	background-color: var(--red);
+	border: 0;
+	border-radius: var(--b-radius);
+}
+
+.change-squares-per-side:hover {
+	filter: brightness(92%);
+}
+
 .squares-container {
 	width: 550px;
 	max-width: 100%;
-	border: 20px solid #ee0e0e;
+	border: 20px solid var(--red);
 	display: flex;
 	flex-wrap: wrap;
 }
